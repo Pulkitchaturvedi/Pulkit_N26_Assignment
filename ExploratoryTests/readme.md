@@ -13,7 +13,7 @@
 3. [Charter C3: Side Menu (Categories, Accounts, Currencies and Settings)](#charter-c3-side-menu-categories-accounts-currencies-and-settings)
 4. [Charter C4: Side Menu (Accounts, Date Frequency Selection)](#charter-c4-side-menu-accounts-date-frequency-selection)
 5. [Charter C5: Explore App Behavior in Offline Mode](#charter-c5-explore-app-behavior-in-offline-mode)
-
+6. [Summary of Defects and Prioritization](#summary-of-defects-and-prioritization)
 ---
 
 ## Charter C1: Home Screen (Landing Page)

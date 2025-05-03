@@ -96,7 +96,7 @@ After running the tests, generate the Allure report:
 allure serve allure-results
 ```
 
-This will automatically generate and open the report in your browser.
+This will automatically generate and open the report in your browser. Sample report for the tests run has been stored in Result folder. 
 
 Alternatively, generate static report files:
 

@@ -1,11 +1,15 @@
 package com.pulkit.assignment.pages;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage extends BasePage {
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Monefy']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Monefy')]")
     private WebElement titleText;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='All accounts']")
@@ -31,46 +35,58 @@ public class HomePage extends BasePage {
     }
 
     public WebElement getTitleTextElement() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOf(titleText));
         return titleText;
     }
 
     public String getTitleText() {
-        return getText(titleText);
+        return getText(getTitleTextElement());
     }
 
     public WebElement getAccountSelectorTextElement() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(accountSelectorText));
         return accountSelectorText;
     }
 
     public String getAccountSelectorText() {
-        return getText(accountSelectorText);
+        return getText(getAccountSelectorTextElement());
     }
 
     public WebElement getIncomeAmountElement() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(incomeAmount));
         return incomeAmount;
     }
 
     public String getIncomeAmount() {
-        return getText(incomeAmount);
+        return getText(getIncomeAmountElement());
     }
 
     public WebElement getExpenseAmountElement() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(expenseAmount));
         return expenseAmount;
     }
 
     public String getExpenseAmount() {
-        return getText(expenseAmount);
+        return getText(getExpenseAmountElement());
     }
 
     public WebElement getBalanceAmountElement() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(balanceAmount));
         return balanceAmount;
     }
 
     public String getBalanceAmount() {
-        return getText(balanceAmount);
+        return getText(getBalanceAmountElement());
     }
 
     public WebElement getExpenseButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(expenseButton));
         return expenseButton;
     }
 
@@ -79,6 +95,8 @@ public class HomePage extends BasePage {
     }
 
     public WebElement getIncomeButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(incomeButton));
         return incomeButton;
     }
 
@@ -87,7 +105,7 @@ public class HomePage extends BasePage {
     }
 
     public void clickExpenseButton() {
-        click(expenseButton);
+        click(getExpenseButton(), "Expense Button");
     }
 
     protected boolean isDisplayed(WebElement element) {

@@ -30,12 +30,12 @@ public class BalancePage extends BasePage {
     }
 
     public BalancePage tapOnTransactionGroupHeader() {
-        click(transactionGroupHeader);
+        click(transactionGroupHeader,"Transaction Group Header");
         return this;
     }
 
     public EditIncomePage tapOnTransactionDetailToEditIncome() {
-        click(transactionDateLabel);
+        click(transactionDateLabel,"Transaction Detail to Edit Income");
         return new EditIncomePage(driver);
     }
 }

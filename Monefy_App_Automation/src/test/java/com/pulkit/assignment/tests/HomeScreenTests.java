@@ -2,6 +2,7 @@ package com.pulkit.assignment.tests;
 
 import com.pulkit.assignment.base.BaseTest;
 import com.pulkit.assignment.pages.HomePage;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,17 +19,16 @@ public class HomeScreenTests extends BaseTest {
     @Test(priority = 1)
     public void validateTitleText() {
         String actualTitle = homePage.getTitleText();
-        String expectedTitle = "Monefy";
-        Assert.assertEquals(actualTitle, expectedTitle, "Title does not match");
+        Assert.assertEquals(actualTitle, "Monefy", "Title does not match 'Monefy'");
     }
 
-    @Test(priority=2)
+    @Test(priority = 2)
     public void validateAccountSelectorText() {
         String actualAccountSelector = homePage.getAccountSelectorText();
         Assert.assertEquals(actualAccountSelector, "All accounts", "Account Selector text is incorrect!");
     }
 
-    @Test(priority=3)
+    @Test(priority = 3)
     public void validateAmountsDisplayed() {
         System.out.println("Income Amount: " + homePage.getIncomeAmount());
         System.out.println("Expense Amount: " + homePage.getExpenseAmount());
@@ -44,7 +44,8 @@ public class HomeScreenTests extends BaseTest {
     @Test(priority = 5, description = "Validate Back Navigation returns to Home Screen")
     public void validateBackNavigation() {
         homePage.clickExpenseButton();
-        homePage.navigateBack();
+        driver.navigate().back();
+        WebElement title = homePage.getTitleTextElement();
         Assert.assertTrue(homePage.isExpenseButtonDisplayed(), "Back navigation failed - Expense Button not visible!");
     }
 }

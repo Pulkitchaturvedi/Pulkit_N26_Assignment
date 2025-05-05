@@ -3,10 +3,7 @@ package com.pulkit.assignment.pages;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
+import com.pulkit.assignment.base.BasePage;
 
 public class HomePage extends BasePage {
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Monefy')]")
@@ -30,86 +27,71 @@ public class HomePage extends BasePage {
     @AndroidFindBy(id = "com.monefy.app.lite:id/income_button")
     private WebElement incomeButton;
 
+    @AndroidFindBy(id = "com.monefy.app.lite:id/balance_container")
+    private WebElement balanceButton;
+
     public HomePage(AppiumDriver driver) {
         super(driver);
     }
 
-    public WebElement getTitleTextElement() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        wait.until(ExpectedConditions.visibilityOf(titleText));
-        return titleText;
-    }
-
     public String getTitleText() {
-        return getText(getTitleTextElement());
-    }
-
-    public WebElement getAccountSelectorTextElement() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(accountSelectorText));
-        return accountSelectorText;
+        return getText(titleText);
     }
 
     public String getAccountSelectorText() {
-        return getText(getAccountSelectorTextElement());
-    }
-
-    public WebElement getIncomeAmountElement() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(incomeAmount));
-        return incomeAmount;
+        return getText(accountSelectorText);
     }
 
     public String getIncomeAmount() {
-        return getText(getIncomeAmountElement());
-    }
-
-    public WebElement getExpenseAmountElement() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(expenseAmount));
-        return expenseAmount;
+        return getText(incomeAmount);
     }
 
     public String getExpenseAmount() {
-        return getText(getExpenseAmountElement());
-    }
-
-    public WebElement getBalanceAmountElement() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(balanceAmount));
-        return balanceAmount;
+        return getText(expenseAmount);
     }
 
     public String getBalanceAmount() {
-        return getText(getBalanceAmountElement());
+        return getText(balanceAmount);
     }
 
-    public WebElement getExpenseButton() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(expenseButton));
-        return expenseButton;
+    public NewExpensePage clickExpenseButton() {
+        click(expenseButton, "Expense Button");
+        return new NewExpensePage(driver);
     }
 
-    public boolean isExpenseButtonDisplayed() {
-        return isDisplayed(expenseButton);
+    public NewIncomePage clickIncomeButton() {
+        click(incomeButton, "Income Button");
+        return new NewIncomePage(driver);
     }
 
-    public WebElement getIncomeButton() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(incomeButton));
-        return incomeButton;
+    public BalancePage clickBalanceButton() {
+        click(balanceButton, "Balance Button");
+        return new BalancePage(driver);
     }
 
+    /**
+     * Checks if the income button is displayed
+     * @return true if the income button is displayed, false otherwise
+     */
     public boolean isIncomeButtonDisplayed() {
-        return isDisplayed(incomeButton);
+        try {
+            waitForVisibility(incomeButton);
+            return incomeButton.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
-    public void clickExpenseButton() {
-        click(getExpenseButton(), "Expense Button");
-    }
-
-    protected boolean isDisplayed(WebElement element) {
-        waitForVisibility(element);
-        return element.isDisplayed();
+    /**
+     * Checks if the expense button is displayed
+     * @return true if the expense button is displayed, false otherwise
+     */
+    public boolean isExpenseButtonDisplayed() {
+        try {
+            waitForVisibility(expenseButton);
+            return expenseButton.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

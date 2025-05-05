@@ -2,29 +2,39 @@ package com.pulkit.assignment.utils;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
+import java.io.File;
 
 public class ExtentReportManager {
     private static ExtentReports extent;
 
     public static ExtentReports getInstance() {
         if (extent == null) {
-            createInstance();
+            extent = createInstance("test-output/extent-report.html");
         }
         return extent;
     }
 
-    private static void createInstance() {
-        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("test-output/ExtentReport.html");
-        sparkReporter.config().setDocumentTitle("Monefy Automation Report");
-        sparkReporter.config().setReportName("Test Results");
-        sparkReporter.config().setTheme(Theme.STANDARD);
+    private static ExtentReports createInstance(String fileName) {
+        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(fileName);
 
-        extent = new ExtentReports();
-        extent.attachReporter(sparkReporter);
+        // Create report output directory if it doesn't exist
+        File reportDir = new File("test-output");
+        if (!reportDir.exists()) {
+            reportDir.mkdirs();
+        }
 
-        extent.setSystemInfo("Tester", "Pulkit Chaturvedi");
+        // Configuration
+        htmlReporter.config().setDocumentTitle("Monefy App Automation Report");
+        htmlReporter.config().setReportName("Test Execution Report");
+
+        ExtentReports extent = new ExtentReports();
+        extent.attachReporter(htmlReporter);
+
+        // Set environment information
+        extent.setSystemInfo("QA", System.getProperty("Pulkit Chaturvedi"));
         extent.setSystemInfo("App", "Monefy");
         extent.setSystemInfo("Platform", "Android");
+
+        return extent;
     }
 }

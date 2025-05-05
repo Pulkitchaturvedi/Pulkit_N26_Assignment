@@ -1,8 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="Monefy Test Suite">
-    <test name="Home Screen Tests">
+    <listeners>
+        <listener class-name="com.pulkit.assignment.utils.TestListener"/>
+    </listeners>
+
+    <test name="Expense and Income Tests">
         <classes>
-            <class name="com.pulkit.assignment.tests.HomeScreenTests"/>
+            <class name="com.pulkit.assignment.tests.AddExpenseAndIncomeEntryTest"/>
         </classes>
     </test>
 </suite>

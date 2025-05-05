@@ -34,7 +34,7 @@ Conducted exploratory testing with 5 charters:
 | C4 | Side Menu (Accounts, Date Frequency Selection) |
 | C5 | Explore App Behavior in Offline Mode |
 
-👉 [View Exploratory Testing Notes](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/ExploratoryTestingNotes)
+👉 [View Exploratory Testing Notes](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/ExploratoryTests)
 
 ---
 
@@ -49,7 +49,7 @@ Developed a UI test automation framework using Appium + Java + TestNG.
 - ExtentReports HTML reporting
 - Maven build system
 
-👉 [View Monefy App Automation Framework](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/MonefyAppAutomation)
+👉 [View Monefy App Automation Framework](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/Monefy_App_Automation)
 
 ---
 
@@ -64,7 +64,7 @@ Implemented API test automation for CRUD operations on Swagger Petstore API.
 - Data-driven approach
 - ExtentReports for reporting
 
-👉 [View Swagger Petstore API Automation](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/SwaggerPetstoreAPI)
+👉 [View Swagger Petstore API Automation](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/PetStore_RESTFUL_API_Test)
 
 ---
 

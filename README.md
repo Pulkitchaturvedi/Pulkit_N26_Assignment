@@ -14,9 +14,9 @@ This repository documents 3 key testing activities performed for the assignment:
 
 | Activity | Platform | Tech Stack | Repository/Link |
 |----------|----------|------------|----------------|
-| **Exploratory Testing - Monefy App** | iOS | Manual Testing, Charters | [📂 Exploratory Testing Notes](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/ExploratoryTestingNotes) |
-| **Monefy App Automation** | Android | Appium, Java, Maven, TestNG, ExtentReports, Page Object Model | [📂 Monefy App Automation](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/MonefyAppAutomation) |
-| **Swagger Petstore API Test Automation** | API (Backend) | Java, Maven, RestAssured, TestNG, JSON Schema Validation, ExtentReports | [📂 Swagger Petstore API Automation](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/SwaggerPetstoreAPI) |
+| **Exploratory Testing - Monefy App** | iOS | Manual Testing, Charters | [📂 Exploratory Testing Notes](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/ExploratoryTests) |
+| **Monefy App Automation** | Android | Appium, Java, Maven, TestNG, ExtentReports, Page Object Model | [📂 Monefy App Automation](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/Monefy_App_Automation) |
+| **Swagger Petstore API Test Automation** | API (Backend) | Java, Maven, RestAssured, TestNG, JSON Schema Validation, ExtentReports | [📂 Swagger Petstore API Automation](https://github.com/Pulkitchaturvedi/Pulkit_N26_Assignment/tree/main/PetStore_RESTFUL_API_Test) |
 
 ---
 
